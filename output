@@ -1,0 +1,43 @@
+Open-Source Fixedpoint Model-Checker version 2024
+Verified for 1 sessions
+INPUT:
+   task1.AnB
+SUMMARY:
+  ATTACK_FOUND
+GOAL:
+  weak_auth
+BACKEND:
+  Open-Source Fixedpoint Model-Checker version 2024
+STATISTICS:
+  TIME 339 ms
+  parseTime 0 ms
+  visitedNodes: 476 nodes
+  depth: 5 plies
+
+ATTACK TRACE:
+(x702,1) -> i: {x702,i,NA(1),KAB(1)}_(pk(i))
+i -> (x701,1): {x702,x701,NA(1),x308}_(pk(x701))
+(x701,1) -> i: {|x702,x701,NA(1)|}_x308
+i -> (x702,1): {|x702,i,NA(1)|}_KAB(1)
+(x702,1) -> i: {|x702,NA(1)|}_(sk(x702,s))
+i -> (s,1): {|x702,NA(1)|}_(sk(x702,s))
+(s,1) -> i: {x702,NA(1),s}_inv(pk(s))
+i -> (x701,1): {x702,NA(1),s}_inv(pk(s))
+(x701,1) -> i: {|x702,x701,NA(1),Payload(5)|}_x308
+
+
+% Reached State:
+% 
+% request(x701,x702,pBANA,NA(1),1)
+% state_rB(x701,2,inv(pk(x701)),pk(x701),pk(s),s,x702,inv(pseudonym(x701)),inv(confChCr(x701)),inv(authChCr(x701)),pseudonym(x701),x308,NA(1),{x702,x701,NA(1),x308}_(pk(x701)),{|x702,x701,NA(1)|}_x308,{x702,NA(1),s}_inv(pk(s)),Payload(5),{|x702,x701,NA(1),Payload(5)|}_x308,1)
+% witness(x701,x702,pABPayload,Payload(5))
+% secrets(Payload(5),secrecyset(x701,1,pPayload),i)
+% contains(secrecyset(x701,1,pPayload),x702)
+% contains(secrecyset(x701,1,pPayload),x701)
+% state_rs(s,1,sk(x702,s),inv(pk(s)),pk(s),x702,inv(pseudonym(s)),inv(confChCr(s)),inv(authChCr(s)),pseudonym(s),NA(1),{|x702,NA(1)|}_(sk(x702,s)),{x702,NA(1),s}_inv(pk(s)),1)
+% state_rA(x702,2,sk(x702,s),pk(i),pk(s),s,i,inv(pseudonym(x702)),inv(confChCr(x702)),inv(authChCr(x702)),pseudonym(x702),NA(1),KAB(1),{x702,i,NA(1),KAB(1)}_(pk(i)),{|x702,i,NA(1)|}_KAB(1),{|x702,NA(1)|}_(sk(x702,s)),1)
+% state_rA(x33,0,sk(x33,s),pk(x701),pk(s),s,x701,inv(pseudonym(x33)),inv(confChCr(x33)),inv(authChCr(x33)),pseudonym(x33),2)
+% state_rB(x37,0,inv(pk(x37)),pk(x37),pk(s),s,x38,inv(pseudonym(x37)),inv(confChCr(x37)),inv(authChCr(x37)),pseudonym(x37),2)
+% state_rs(s,0,sk(x36,s),inv(pk(s)),pk(s),x36,inv(pseudonym(s)),inv(confChCr(s)),inv(authChCr(s)),pseudonym(s),2)
+% witness(x702,i,pBANA,NA(1))
+

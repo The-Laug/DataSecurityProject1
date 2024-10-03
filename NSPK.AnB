@@ -1,0 +1,16 @@
+Protocol: NSPK
+
+Types: Agent A,B;
+	Number NA,NB;
+	Function pk,h
+
+Knowledge: A: A,pk(A),inv(pk(A)),B,pk(B),h;
+	   B: B,pk(B),inv(pk(B)),A,pk(A),h;
+
+Actions:
+A->B: {NA,A}(pk(B))
+B->A: {NA,NB}(pk(A))
+A->B: {NB}(pk(B))
+
+Goals:
+h(NA,NB) secret between A,B
