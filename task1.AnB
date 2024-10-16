@@ -12,9 +12,10 @@ Knowledge: A: A,B,s,pk(s),pk(B),sk(A,s);
 Actions:
 A->B: {A,B,NA,KAB}pk(B)
 B->A: {|A,B,NA|}KAB
-A->s: {|A,NA|}sk(A,s)
+A->s: {|A,NA,B|}sk(A,s)
 s->B: {A,NA,s}inv(pk(s))
-B->A: {|A,B,NA,Payload|}KAB
+B->s: {|A,B,NA,Payload|}pk(s)
+s->A: {|A,B,NA,Payload|}sk(A,s)
 Goals:
 
 B authenticates A on NA

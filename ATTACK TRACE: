@@ -1,0 +1,8 @@
+ATTACK TRACE:
+(A,1) -> i: {NA(1),A}_(pk(i))
+i -> (B,1): {NA(1),A}_(pk(B))
+(B,1) -> i: {NA(1),NB(2)}_(pk(A))
+i -> (A,1): {NA(1),NB(2)}_(pk(A))
+(A,1) -> i: {NB(2)}_(pk(i))
+i -> (B,1): {NB(2)}_(pk(B))
+i can produce secret h(NA(1),NB(2))

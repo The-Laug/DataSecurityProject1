@@ -1,0 +1,41 @@
+Open-Source Fixedpoint Model-Checker version 2024
+Verified for 1 sessions
+INPUT:
+   NSPK.AnB
+SUMMARY:
+  ATTACK_FOUND
+GOAL:
+  secrets
+BACKEND:
+  Open-Source Fixedpoint Model-Checker version 2024
+STATISTICS:
+  TIME 225 ms
+  parseTime 0 ms
+  visitedNodes: 442 nodes
+  depth: 4 plies
+
+ATTACK TRACE:
+(x20,1) -> i: {NA(1),x20}_(pk(i))
+i -> (x29,1): {NA(1),x20}_(pk(x29))
+(x29,1) -> i: {NA(1),NB(2)}_(pk(x20))
+i -> (x20,1): {NA(1),NB(2)}_(pk(x20))
+(x20,1) -> i: {NB(2)}_(pk(i))
+i -> (x29,1): {NB(2)}_(pk(x29))
+i can produce secret h(NA(1),NB(2))
+
+secret leaked: h(NA(1),NB(2))
+
+
+% Reached State:
+% 
+% secrets(h(NA(1),NB(2)),secrecyset(x29,1,phNANB),i)
+% contains(secrecyset(x29,1,phNANB),x20)
+% contains(secrecyset(x29,1,phNANB),x29)
+% state_rB(x29,2,h,pk(x20),x20,inv(pk(x29)),pk(x29),inv(pseudonym(x29)),inv(confChCr(x29)),inv(authChCr(x29)),pseudonym(x29),NA(1),{NA(1),x20}_(pk(x29)),NB(2),{NA(1),NB(2)}_(pk(x20)),{NB(2)}_(pk(x29)),1)
+% state_rA(x20,2,h,pk(i),i,inv(pk(x20)),pk(x20),inv(pseudonym(x20)),inv(confChCr(x20)),inv(authChCr(x20)),pseudonym(x20),NA(1),{NA(1),x20}_(pk(i)),NB(2),{NA(1),NB(2)}_(pk(x20)),{NB(2)}_(pk(i)),1)
+% state_rA(x31,0,h,pk(x33),x33,inv(pk(x31)),pk(x31),inv(pseudonym(x31)),inv(confChCr(x31)),inv(authChCr(x31)),pseudonym(x31),2)
+% state_rB(x34,0,h,pk(x29),x29,inv(pk(x34)),pk(x34),inv(pseudonym(x34)),inv(confChCr(x34)),inv(authChCr(x34)),pseudonym(x34),2)
+% contains(secrecyset(x20,1,phNANB),i)
+% contains(secrecyset(x20,1,phNANB),x20)
+% secrets(h(NA(1),NB(2)),secrecyset(x20,1,phNANB),i)
+
