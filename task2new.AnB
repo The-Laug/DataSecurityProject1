@@ -1,0 +1,22 @@
+Protocol: task2
+
+Types: Agent A,B,Hm;
+       Number X,Y,g,M;
+       Function ck,sk
+
+Knowledge: A: A,B,Hm,ck(A,Hm),sk(A,Hm),g;
+	   B: A,B,Hm,ck(B,Hm),sk(B,Hm),g;
+	   Hm: A,B,Hm,ck(A,Hm),sk(A,Hm),ck(B,Hm),sk(B,Hm),g
+
+Actions:
+A->B:  A,B,exp(g,X),{|A,B,exp(g,X)|}ck(A,Hm)
+B->Hm: {|A,B,exp(g,X),exp(g,Y),
+         {|A,B,exp(g,X)|}ck(A,Hm)|}ck(B,Hm)
+Hm->B: {|B,A,{|B,A,exp(g,X),exp(g,Y)|}sk(A,Hm)|}sk(B,Hm)
+B->A: exp(g,Y),{|B,A,exp(g,X),exp(g,Y)|}sk(A,Hm)
+A->B: {|M|}exp(exp(g,X),Y)
+
+Goals:
+B authenticates A on M
+M secret between A,B
+
